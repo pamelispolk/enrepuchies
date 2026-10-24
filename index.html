@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Título que aparece en la miniatura de Facebook -->
+    <meta property="og:title" content="Seetkání, foootografie">
+    
+    <!-- Imagen miniatura (pon aquí la URL de tu imagen .jpg o .png) -->
+    <meta property="og:image" content="https://i.postimg.cc/SQVxd77J/Vista-Uno-Sepia.png">
+    
+    <title>Dating</title>
+    
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .phone {
+            width: 100%;
+            max-width: 390px;
+            height: 100vh;
+            max-height: 844px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            background: #111; /* color de respaldo */
+        }
+
+        /* ========== FONDO GIF ========== */
+        .phone::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://i.imgur.com/QW8PR9P.gif"); /* ← CAMBIA AQUÍ LA URL DEL GIF */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        /* Capa oscura para que el texto se lea bien */
+        .phone::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55); /* Puedes bajar o subir este valor (0.3 = más claro, 0.7 = más oscuro) */
+            z-index: 1;
+        }
+
+        /* Todo el contenido por encima del fondo */
+        .status-bar,
+        .app-header,
+        .content,
+        .home-indicator {
+            position: relative;
+            z-index: 2;
+        }
+
+        .status-bar {
+            height: 44px;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .status-bar .time {
+            font-weight: 600;
+        }
+
+        .status-bar .icons {
+            display: flex;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 28px;
+            position: relative;
+        }
+
+        .pregunta {
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .pregunta.activa {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.35;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .botones {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            font-size: 17px;
+            font-weight: 600;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: transform 0.15s, opacity 0.15s;
+        }
+
+        button:active {
+            transform: scale(0.97);
+            opacity: 0.9;
+        }
+
+        .btn-si {
+            background: #30d158;
+            color: #000;
+        }
+
+        .btn-no {
+            background: rgba(44, 44, 46, 0.85);
+            color: #fff;
+            border: 1px solid #3a3a3c;
+        }
+
+        .btn-continuar {
+            background: linear-gradient(90deg, #ff2d55, #ff375f);
+            color: #fff;
+            font-size: 18px;
+            margin-top: 10px;
+            box-shadow: 0 8px 20px rgba(255, 45, 85, 0.35);
+        }
+
+        .home-indicator {
+            height: 34px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 10px;
+        }
+
+        .home-indicator span {
+            width: 134px;
+            height: 5px;
+            background: #fff;
+            border-radius: 3px;
+            opacity: 0.3;
+        }
+
+        .app-header {
+            text-align: center;
+            padding: 12px 0 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffffcc;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+    
+</head>
+<body>
+ 
+    <div class="phone">
+ 
+        <div class="status-bar">
+            <div class="time">9:41</div>
+            <div class="icons">
+                <span>●●●</span>
+                <span>Wi-Fi</span>
+                <span>100%</span>
+            </div>
+        </div>
+ 
+        <div class="app-header">Dating</div>
+ 
+        <div class="content">
+ 
+            <!-- Pregunta 1 -->
+            <div id="pregunta1" class="pregunta activa">
+                <h2>Nabízím noční služby..<br>¿Je ti více než 18 let?</h2>
+                <div class="botones">
+                    <button class="btn-si" onclick="mostrarPregunta2()">ANO</button>
+                    <button class="btn-no" onclick="mostrarPregunta2()">NE</button>
+                </div>
+            </div>
+ 
+            <!-- Pregunta 2 -->
+            <div id="pregunta2" class="pregunta">
+                <h2>Klikněte na tlačítko „Pokračovat“ níže a zaregistrujte se ZDARMA, abyste je mohli sledovat živě.</h2>
+                <a href="https://laespanules.blogspot.com" target="_blank" style="text-decoration: none;">
+                    <button class="btn-continuar">Pokračovat</button>
+                </a>
+            </div>
+ 
+        </div>
+ 
+        <div class="home-indicator">
+            <span></span>
+        </div>
+ 
+    </div>
+ 
+    <script>
+        function mostrarPregunta2() {
+            document.getElementById('pregunta1').classList.remove('activa');
+            document.getElementById('pregunta2').classList.add('activa');
+        }
+    </script>
+ 
+</body>
+</html>
